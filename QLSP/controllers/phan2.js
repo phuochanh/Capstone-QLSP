@@ -46,7 +46,7 @@ function addProduct() {
   let price = domId("GiaSP").value;
   let image = domId("HinhSP").value;
   let description = domId("MotaSP").value;
-  let product = new Product(name, price, image, description);
+  let product = new ProductPhan2(name, price, image, description);
 
   productServicePhan2.addProduct(product).then(function () {
     alert("Thêm sản phẩm thành công.");
@@ -82,7 +82,7 @@ function updateProduct(id) {
   let price = domId("GiaSP").value;
   let image = domId("HinhSP").value;
   let description = domId("MotaSP").value;
-  let product = new Product(name, price, image, description);
+  let product = new ProductPhan2(name, price, image, description);
 
   productServicePhan2.updateProduct(id, product).then(function () {
     document.querySelector(".close").click();
