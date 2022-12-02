@@ -10,53 +10,45 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- Bootstrap 4 -->
-	<<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
-    />
-
-    
+    /> 
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-
-    <select class="form-control" id="chooseProduct"> 
+    <select  class="form-control" id="chooseProduct"> 
       <option>Chọn Sản Phẩm</option>
       <option>Samsung</option>
       <option>Iphone</option>
     </select>
-
     <div id="app">
-      <div class="banner">
-
-        
+      <div class="banner">   
         <div class="cart">
-          <a onclick="showCart()" href="#"><i class="fas fa-shopping-cart" style="font-size:2rem;"></i></a>        
-        <span id="total-qty" class="total-qty">0</span>
+          <a onclick="showCart()" href="#"><i class="fas fa-shopping-cart" style="font-size:2rem"></i></a>        
+        <span id="total-qty" class="total-qty" >0</span>
         </div>
-        <div id="showCart" style="display: none; margin-left: 600px; margin-top: 60px; width:1000px; height: 600px;background-color: rgba(0, 0, 0, 0.702); z-index: 1;">
+        <div id="showCart" style=" display: none; margin-left: 600px; margin-top: 60px; width:1000px; height: 600px;background-color: rgba(0, 0, 0, 0.702); z-index: 1;">
           <h2 style="text-align:center; color: white"; font-size: 30px">Cart</h2>
           <table>
-            
+            <tr class="tbl" style="color: white">
+              <th id="tbl1" style="padding: 0 40px;">STT</th>
+              <th style="padding: 0 40px 0 0;">Image</th>            
+              <th style="padding: 0 40px 0 0;">name</th>
+              <th style="padding: 0 40px 0 0;">Số lượng</th>
+              <th style="padding: 0 40px 0 0;">price</th>
+              <th style="padding: 0 40px 0 0;">Thành tiền</th>
+            </tr>
             <tbody id="myCart"></tbody>
-            <button onclick="clearCart()" style=" position:fixed; bottom: 20px; right: 100px "  id="btnthanhtoan" class="btn btn-primary" >Thanh Toán</button>
-            <button onclick="noneCart()" style=" position:fixed; bottom: 20px; right: 20px " id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-          </table>
-          
-          
-          
-        </div>
-        
-        <div id="main-cart" class="main-cart">
-            <!-- <div id="card"></div> -->
-
-          
+            <button onclick="clearCart()" style=" position:relative; top: 500px; left: 600px "  id="btnthanhtoan" class="btn btn-primary" >Thanh Toán</button>
+            <button onclick="noneCart()" style=" position:relative; top: 500px; left: 610px " id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+          </table>          
+        </div>      
+        <div id="main-cart" class="main-cart">          
         </div>
       </div>
     </div>
-
-
 	<!-- JQUERY JS  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
