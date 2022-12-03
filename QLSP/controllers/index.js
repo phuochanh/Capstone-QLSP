@@ -10,9 +10,9 @@ function domId(id) {
   return document.getElementById(id);
 }
 function renderProductList(data) {
-  var content = "";
+  let content = "";
 
-  for (var i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     content += `
                   <div class="card" style="color:white">
                   <div class="img-container">
@@ -58,9 +58,9 @@ domId("chooseProduct").onchange = function (event) {
 };
 
 function filterProduct(data, type) {
-  var result = [];
+  let result = [];
   if (type === "Chọn Sản Phẩm") return data;
-  for (var i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     if (data[i].type.toLowerCase() === type.toLowerCase()) {
       result.push(data[i]);
     }
@@ -70,13 +70,11 @@ function filterProduct(data, type) {
 
 //5. Thêm sản phẩm vào giỏ hàng
 var cart = [];
-var test1 = "hello";
-window.test2 = "greet";
 function addProduct(i) {
   if (checkCart(allItem[i].id) >= 0) {
     updateQuantity(checkCart(allItem[i].id));
   } else {
-    var cartItem = {
+    let cartItem = {
       product: {
         id: 0,
         img: "",
@@ -120,42 +118,43 @@ function updateQuantity(index) {
 }
 
 function renderCart(cart) {
-  var quantity = 0;
+  let quantity = 0;
   for (var i = 0; i < cart.length; i++) {
     quantity += cart[i].quantity;
   }
   domId("total-qty").innerHTML = quantity;
 
   var content = "";
-
-
-  for (var i = 0; i < cart.length; i++) {
-    var total = cart[i].product.price * cart[i].product.sl;
+let totalMoney = 0;
+  for (let i = 0; i < cart.length; i++) {   
+    let total = cart[i].product.price * cart[i].product.sl;
+    totalMoney += total;
     content +=
       ` 
       <tr style="color: white">     
-      <td style="padding-left: 50px">${cart[i].product.id}</td>
-      <td><img id="image" class="product-img" src=${cart[i].product.img} alt="" style="width: 40px; height: 40px"></td>
-      <td>${cart[i].product.name}</td>
+      <td style="padding-left: 50px; padding-top: 10px">${i + 1}</td>
+      <td><img id="image" class="product-img" src=${cart[i].product.img} alt="" style="width: 40px; height: 40px; padding-top: 10px"></td>
+      <td style="padding-top: 10px">${cart[i].product.name}</td>
       <td>
       <div class="buttons_added">
       <input type="hidden" value= "` +
       i +
       `">
   <input onclick="giamsl(this)" class="minus is-form" type="button" value="-">
-  <input aria-label="quantity" id="sl" class="input-qty" max="10" min="1" name="" type="number" style="width: 40px" value="${cart[i].product.sl}">
+  <input aria-label="quantity" id="sl" class="input-qty" max="10" min="1" name="" type="number" style="width: 40px; padding-top: 10px" value="${cart[i].product.sl}">
   <input onclick="tangsl(this)" class="plus is-form" type="button" value="+">
 </div>
       </td>
-      <td>${cart[i].product.price}</td>
-      <td>` +
+      <td style="padding-top: 10px">${cart[i].product.price}</td>
+      <td style="padding-top: 10px">` +
       total +
       `</td>  
-      <td><button onclick = "deletesp('${cart[i].product.id}')" class="btn btn-danger">Xóa</button></td>
+      <td style="padding-top: 10px"><button onclick = "deletesp('${cart[i].product.id}')" class="btn btn-danger">Xóa</button></td>
       </tr>
       `;
   }
   domId("myCart").innerHTML = content;
+  domId("tongtien").innerHTML = `Tổng tiền: ${totalMoney} đ`;
 }
 
 function showCart() {
@@ -198,7 +197,7 @@ function giamsl(x) {
 }
 // Xóa sản phẩm ra khỏi giỏ hàng
 function deletesp(sp) {
-  var index = checkCart(sp);
+  let index = checkCart(sp);
   if (index === -1) {
     alert("Không tìm thấy sản phẩm phù hợp");
     return;
@@ -209,10 +208,11 @@ function deletesp(sp) {
 }
 // Clear giỏ hàng về mảng rỗng
 function clearCart() {
-  var nCart = cart;
-  nCart = [];
-  domId("myCart").innerHTML = nCart;
+  cart =[];
+  domId("myCart").innerHTML = cart;
   domId("total-qty").innerHTML = 0;
+  domId("tongtien").innerHTML = "Tổng tiền: 0 đ";
+  saveData();
 }
 
 // Lưu dữ liệu vào localStorage
@@ -222,13 +222,7 @@ function saveData() {
 }
 // Đưa dữ liệu cũ trong localStorage lên màn hình
 function getData() {
-  // if localStorage.getItem("cart") {
-  //   cart = JSON.parse (cart);
-  //   renderCart(cart);
-  // }
-
   cart = JSON.parse(localStorage.getItem("cart"));
-
   // Nếu localStorage null (ko có ds) thì ko làm gì cả.
   if (!cart) {
     cart = [];

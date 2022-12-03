@@ -33,16 +33,17 @@
           <h2 style="text-align:center; color: white"; font-size: 30px">Cart</h2>
           <table>
             <tr class="tbl" style="color: white">
-              <th id="tbl1" style="padding: 0 40px;">STT</th>
-              <th style="padding: 0 40px 0 0;">Image</th>            
-              <th style="padding: 0 40px 0 0;">name</th>
-              <th style="padding: 0 40px 0 0;">Số lượng</th>
-              <th style="padding: 0 40px 0 0;">price</th>
-              <th style="padding: 0 40px 0 0;">Thành tiền</th>
+              <th id="tbl1" style="padding: 0 40px 20px;">STT</th>
+              <th style="padding: 0 40px 20px 0;">Image</th>            
+              <th style="padding: 0 40px 20px 0;">name</th>
+              <th style="padding: 0 40px 20px 0;">Số lượng</th>
+              <th style="padding: 0 40px 20px 0;">price</th>
+              <th style="padding: 0 40px 20px 0;">Thành tiền</th>
             </tr>
             <tbody id="myCart"></tbody>
-            <button onclick="clearCart()" style=" position:relative; top: 500px; left: 600px "  id="btnthanhtoan" class="btn btn-primary" >Thanh Toán</button>
-            <button onclick="noneCart()" style=" position:relative; top: 500px; left: 610px " id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            <span id="tongtien" style="color: white; position:relative; top: 500px; left: 40px"></span>
+            <button onclick="clearCart()" style=" position:relative; top: 500px; left: 500px "  id="btnthanhtoan" class="btn btn-primary" >Thanh Toán</button>
+            <button onclick="noneCart()" style=" position:relative; top: 500px; left: 510px " id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
           </table>          
         </div>      
         <div id="main-cart" class="main-cart">          
