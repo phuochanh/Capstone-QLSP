@@ -227,14 +227,13 @@ function getData() {
   //   renderCart(cart);
   // }
 
-  cartListJSON = localStorage.getItem("cart");
+  cart = JSON.parse(localStorage.getItem("cart"));
 
   // Nếu localStorage null (ko có ds) thì ko làm gì cả.
-  if (!cartListJSON) {
-    // cart = [];
+  if (!cart) {
+    cart = [];
     return;
   }
-cart = JSON.parse(cartListJSON);
   renderCart(cart);
 }
 
