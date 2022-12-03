@@ -70,6 +70,8 @@ function filterProduct(data, type) {
 
 //5. Thêm sản phẩm vào giỏ hàng
 var cart = [];
+var test1 = "hello";
+window.test2 = "greet";
 function addProduct(i) {
   if (checkCart(allItem[i].id) >= 0) {
     updateQuantity(checkCart(allItem[i].id));
@@ -125,7 +127,7 @@ function renderCart(cart) {
   domId("total-qty").innerHTML = quantity;
 
   var content = "";
- 
+
 
   for (var i = 0; i < cart.length; i++) {
     var total = cart[i].product.price * cart[i].product.sl;
