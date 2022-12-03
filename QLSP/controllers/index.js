@@ -222,10 +222,18 @@ function saveData() {
 }
 // Đưa dữ liệu cũ trong localStorage lên màn hình
 function getData() {
+  // if localStorage.getItem("cart") {
+  //   cart = JSON.parse (localStorage.getItem("cart"));
+  //   renderCart(cart);
+  // }
+
   cart = JSON.parse(localStorage.getItem("cart"));
 
   // Nếu localStorage null (ko có ds) thì ko làm gì cả.
-  if (!cart)return;
+  if (!cart) {
+    cart = [];
+    return;
+  }
   renderCart(cart);
 }
 
