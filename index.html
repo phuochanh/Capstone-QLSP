@@ -29,19 +29,19 @@
           <a onclick="showCart()" href="#"><i class="fas fa-shopping-cart" style="font-size:2rem"></i></a>        
         <span id="total-qty" class="total-qty" >0</span>
         </div>
-        <div id="showCart" style=" display: none; margin-left: 600px; margin-top: 60px; width:1000px; height: 600px;background-color: rgba(0, 0, 0, 0.702); z-index: 1;">
-          <h2 style="text-align:center; color: white"; font-size: 30px">Cart</h2>
+        <div id="showCart" class="show-cart">
+          <h2>Cart</h2>
           <table>
-            <tr class="tbl" style="color: white">
-              <th id="tbl1" style="padding: 0 40px 20px;">STT</th>
-              <th style="padding: 0 40px 20px 0;">Image</th>            
-              <th style="padding: 0 40px 20px 0;">name</th>
-              <th style="padding: 0 40px 20px 0;">Số lượng</th>
-              <th style="padding: 0 40px 20px 0;">price</th>
-              <th style="padding: 0 40px 20px 0;">Thành tiền</th>
+            <tr class="tbl " style="color: white">
+              <th id="tbl1" class="tbl1">STT</th>
+              <th class="tbl2">Image</th>            
+              <th class="tbl2">name</th>
+              <th class="tbl2">Số lượng</th>
+              <th class="tbl2">price</th>
+              <th class="tbl2">Thành tiền</th>
             </tr>
             <tbody id="myCart"></tbody>
-            <span id="tongtien" style="color: white; position:relative; top: 500px; left: 40px"></span>
+            <span id="tongtien" class="tongtien" style="color: white; position:relative; top: 500px; left: 40px"></span>
             <button onclick="clearCart()" style=" position:relative; top: 500px; left: 500px "  id="btnthanhtoan" class="btn btn-primary" >Thanh Toán</button>
             <button onclick="noneCart()" style=" position:relative; top: 500px; left: 510px " id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
           </table>          
